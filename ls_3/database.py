@@ -1,9 +1,13 @@
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
+from dotenv import load_dotenv
+load_dotenv()
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:Ft9ZxD87@localhost/fast_api_study"
+
+SQLALCHEMY_DATABASE_URL = os.getenv("POSTGRESQL_URL")
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, client_encoding='utf8')
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
