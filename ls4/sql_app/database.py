@@ -8,8 +8,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-SQLALCHEMY_DATABASE_URL = os.getenv("POSTGRESQL_URL")
-
+SQLALCHEMY_DATABASE_URL = os.getenv("POSTGRESQL_URL")#"postgresql://postgres:Ft9ZxD87@localhost/fast_api_study"
+print(SQLALCHEMY_DATABASE_URL)
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
